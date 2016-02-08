@@ -1,0 +1,30 @@
+div#MainContainer div#ComponentContainer div.product-container {
+  a.prev {
+    float: left;
+    margin: 10px;
+  }
+
+  a.next {
+    float: right;
+    margin: 10px;
+  }
+
+  div.product-block {
+    clear: both;
+
+    img {
+      max-width: 280px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    span.price {
+      display: block;
+      text-align: center;
+
+      &:before {
+        content: "$";
+      }
+    }
+  }
+}

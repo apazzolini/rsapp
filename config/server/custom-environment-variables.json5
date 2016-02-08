@@ -1,0 +1,18 @@
+/* The value of properties in this file corresponds to the environment variable
+ * name that will be loaded into the config
+ */
+{
+  "hapi": {
+    "authCookie": {
+      "password": "HAPI_AUTH_SECRET"
+    }
+  },
+
+  "rs": {
+    "favoritesOauth": "RS_FAVORITES_OAUTH"
+  },
+
+  "app": {
+    "authPhrase": "APP_AUTH_PHRASE"
+  }
+}

@@ -1,0 +1,18 @@
+div#MainContainer div#ComponentContainer div.login-container {
+  h1 {
+    margin-top: 40px;
+  }
+
+  input {
+    display: block;
+    margin: 20px auto;
+    width: 250px;
+  }
+
+  span.error {
+    color: red;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+config/server/local.json5
+webpack-stats.json
+npm-debug.log
+
+// Intellij
+.idea
+*.iml
