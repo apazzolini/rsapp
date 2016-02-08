@@ -10,7 +10,7 @@ export default (server, projectConfig) => {
     server.auth.strategy('session', 'cookie', 'optional', {
       password: config.get('hapi.authCookie.password'),
       cookie: 'sid',
-      isSecure: projectConfig.isProduction
+      isSecure: !__DEVELOPMENT__
     });
   });
 };
