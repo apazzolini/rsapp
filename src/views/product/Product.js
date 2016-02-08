@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import ImageLoader from 'react-imageloader';
 import * as Products from '../../redux/modules/products';
 import NotFound from '../_errors/NotFound';
 
@@ -57,7 +58,7 @@ class Product extends Component {
           <div className="product-block">
             <h1>{product.product_name}</h1>
             <h2>{product.designer}</h2>
-            <img src={`${product.product_image}`} />
+            <ImageLoader src={product.product_image} />
             <span className="price">{product.price}</span>
           </div>
         }
