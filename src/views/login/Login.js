@@ -1,16 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { routeActions } from 'react-router-redux';
-import * as Admin from '../../redux/modules/admin';
+import * as Auth from '../../redux/modules/auth';
 
 const mapStateToProps = (state) => ({
-  admin: state.admin.toJS()
+  auth: state.auth.toJS()
 });
 
 class Login extends Component {
   static propTypes = {
     dispatch: PropTypes.func,
-    admin: PropTypes.object
+    auth: PropTypes.object
   };
 
   constructor(props) {
@@ -26,8 +26,8 @@ class Login extends Component {
       return;
     }
 
-    this.dispatch(Admin.actions.login(auth)).then((res) => {
-      if (this.props.admin.isAdmin) {
+    this.dispatch(Auth.actions.login(auth)).then((res) => {
+      if (this.props.auth.isLoggedIn) {
         this.dispatch(routeActions.push(`/products/0`));
       }
     }, (err) => {
@@ -38,7 +38,7 @@ class Login extends Component {
   };
 
   componentWillMount() {
-    if (this.props.admin.isAdmin) {
+    if (this.props.auth.isLoggedIn) {
       this.dispatch(routeActions.push(`/products/0`));
     }
   }
@@ -53,7 +53,7 @@ class Login extends Component {
         <form onSubmit={this.loginAndRedirect}>
           <input type="text" placeholder="Password" ref="auth" />
 
-          { this.props.admin.loginError &&
+          { this.props.auth.loginError &&
             <span className="error">Error logging in</span>
           }
 

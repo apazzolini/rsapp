@@ -3,27 +3,26 @@ import fromError from '../utils/fromError';
 // Initial State ---------------------------------------------------------------
 
 export const initialState = {
-  isAdmin: false
+  isLoggedIn: false
 };
 
 // Reducers --------------------------------------------------------------------
 
 export const reducers = {
 
-  'admin/login': (state, action) => state.merge({
+  'auth/login': (state, action) => state.merge({
     loggingIn: true,
     loginError: false
   }),
 
-  'admin/loginOk': (state, action) => state.merge({
+  'auth/loginOk': (state, action) => state.merge({
     loggingIn: false,
-    isAdmin: true
+    isLoggedIn: true
   }),
 
-  'admin/loginFail': (state, action) => state.merge({
+  'auth/loginFail': (state, action) => state.merge({
     loggingIn: false,
-    isAdmin: false,
-    isEditing: false,
+    isLoggedIn: false,
     loginError: fromError(action.error)
   })
 
@@ -34,7 +33,7 @@ export const reducers = {
 export const actions = {
 
   login: (auth) => ({
-    type: 'admin/login',
+    type: 'auth/login',
     apiRequest: (api) => api.post('/login', { auth })
   })
 
@@ -44,6 +43,6 @@ export const actions = {
 
 export const selectors = {
 
-  isAdmin: (globalState) => globalState.admin.get('isAdmin')
+  isLoggedIn: (globalState) => globalState.auth.get('isLoggedIn')
 
 };

@@ -8,8 +8,8 @@ import Login from 'views/login/Login';
 import Product from 'views/product/Product';
 
 function requireAuth(store, nextState, replace) {
-  const isAdmin = store.getState().admin.get('isAdmin');
-  if (!isAdmin) {
+  const isLoggedIn = store.getState().auth.get('isLoggedIn');
+  if (!isLoggedIn) {
     replace({
       pathname: '/login'
     });

@@ -1,12 +1,12 @@
 export default {
-  admin: require('./admin'),
+  auth: require('./auth'),
   products: require('./products')
 };
 
 export const updateInitialServerState = (request, initialState) => {
   if (request.auth.isAuthenticated) {
-    initialState.admin = {
-      isAdmin: true
+    initialState.auth = {
+      isLoggedIn: true
     };
   }
 };
