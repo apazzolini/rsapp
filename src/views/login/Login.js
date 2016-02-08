@@ -56,7 +56,6 @@ class Login extends Component {
           { this.props.auth.loginError &&
             <span className="error">Error logging in</span>
           }
-
         </form>
       </div>
     );

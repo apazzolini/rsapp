@@ -71,5 +71,4 @@ export const routes = [
       id: Joi.number().integer().min(0).max(99)
     }
   }
-
 ];

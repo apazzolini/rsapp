@@ -24,7 +24,6 @@ class App extends Component {
         <DocumentMeta {...meta} />
 
         <div id="MainContainer">
-          
           { this.props.loading &&
             <span className="loading">Loading</span>
           }
