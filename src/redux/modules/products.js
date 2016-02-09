@@ -1,5 +1,3 @@
-import fromError from '../utils/fromError';
-
 // Initial State ---------------------------------------------------------------
 
 export const initialState = {
@@ -21,14 +19,7 @@ export const reducers = {
     }
   }),
 
-  'products/loadFail': (state, action) => state.mergeDeep({
-    entities: {
-      [action.id]: {
-        loaded: false,
-        loadError: fromError(action.error)
-      }
-    }
-  })
+  'products/loadFail': (state, action) => state
 
 };
 

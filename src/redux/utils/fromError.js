@@ -1,5 +1,7 @@
 export default function fromError(error) {
-  return {
-    msg: error.toString()
-  };
+  const msg = __DEVELOPMENT__ 
+    ? error.toString() + '\n' + error.stack 
+    : error.toString();
+
+  return { msg };
 }
