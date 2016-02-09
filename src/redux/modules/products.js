@@ -10,18 +10,11 @@ export const initialState = {
 
 export const reducers = {
 
-  'products/load': (state, action) => state.mergeDeep({
-    entities: {
-      [action.id]: {
-        loading: true
-      }
-    }
-  }),
+  'products/load': (state, action) => state,
 
   'products/loadOk': (state, action) => state.mergeDeep({
     entities: {
       [action.result.id]: {
-        loading: false,
         loaded: true,
         ...action.result
       }
@@ -31,7 +24,6 @@ export const reducers = {
   'products/loadFail': (state, action) => state.mergeDeep({
     entities: {
       [action.id]: {
-        loading: false,
         loaded: false,
         loadError: fromError(action.error)
       }

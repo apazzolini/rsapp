@@ -10,18 +10,13 @@ export const initialState = {
 
 export const reducers = {
 
-  'auth/login': (state, action) => state.merge({
-    loggingIn: true,
-    loginError: false
-  }),
+  'auth/login': (state, action) => state,
 
   'auth/loginOk': (state, action) => state.merge({
-    loggingIn: false,
     isLoggedIn: true
   }),
 
   'auth/loginFail': (state, action) => state.merge({
-    loggingIn: false,
     isLoggedIn: false,
     loginError: fromError(action.error)
   })
