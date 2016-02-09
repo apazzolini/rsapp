@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 
 const meta = {
-  title: 'rewardStyle Interview Project'
+  title: 'Favorites Browser'
 };
 
 const mapStateToProps = (state) => ({
