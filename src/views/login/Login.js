@@ -44,7 +44,7 @@ class Login extends Component {
   }
 
   render() {
-    require('./Login.scss');
+    require('./Login.pcss');
 
     return (
       <div className="login-container">

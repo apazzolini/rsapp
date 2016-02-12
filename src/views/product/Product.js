@@ -45,7 +45,7 @@ class Product extends Component {
   }
 
   render() {
-    require('./Product.scss');
+    require('./Product.pcss');
 
     const product = this.props.products[this.props.params.id];
     const id = parseInt(this.props.params.id);

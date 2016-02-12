@@ -17,7 +17,7 @@ class App extends Component {
   };
 
   render() {
-    require('./App.scss');
+    require('./App.pcss');
 
     return (
       <div>
