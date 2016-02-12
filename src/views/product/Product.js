@@ -24,25 +24,39 @@ class Product extends Component {
   }
 
   static fetchData(getState, dispatch, location, params) {
-    if (!Products.selectors.isLoaded(getState(), params.id)) {
-      return dispatch(Products.actions.load(params.id));
-    }
+    return Promise.all([
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (!Products.selectors.isLoaded(getState(), params.id)) {
+            dispatch(Products.actions.load(params.id))
+            .then((x) => resolve(x));
+          }
+        }, 500);
+      }),
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (!Products.selectors.isLoaded(getState(), params.id - 1)) {
+            dispatch(Products.actions.load(params.id - 1))
+            .then((x) => resolve(x));
+          }
+        }, 1000);
+      })
+    ]);
   }
 
   render() {
     require('./Product.scss');
 
+    const product = this.props.products[this.props.params.id];
     const id = parseInt(this.props.params.id);
     const prevId = id - 1;
     const nextId = id + 1;
 
-    if (id < 0 || id >= 100) {
+    if (id < 0 || id >= 100 || !product) {
       return (
         <NotFound />
       );
     }
-
-    const product = this.props.products[this.props.params.id];
 
     return (
       <div className="product-container">

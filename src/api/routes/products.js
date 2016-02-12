@@ -1,6 +1,7 @@
 import Joi from 'joi';
 import config from 'config';
 import fetch from 'isomorphic-fetch';
+import Boom from 'boom';
 
 // -----------------------------------------------------------------------------
 // rewardStyle API fetching ----------------------------------------------------
@@ -59,7 +60,12 @@ export const routes = [
 
   {
     path: '/products/{id}', method: 'GET', handler: async (request, reply) => {
-      const product = await getProduct(request.params.id);
+      //const product = await getProduct(request.params.id);
+      const product = {'product_id':'42750048','product_type':'2','product_url':'http://rstyle.me/cz-n/bi2wdamx7e','product_name':'C-Champagne clutch','product_image':'http://images.rewardstyle.com/img?v=1.3&p=42750048','designer':'Charlotte Olympia','advertiser':'Farfetch UK LTD.','currency':'USD','price':'337.50','commission':'23.62','date_added':'2016-02-11 05:54:47','folders':['LETS PARTY','BAGS','SALE'] };
+
+      if (request.params.id > 3) {
+        reply(Boom.notFound());
+      }
 
       return {
         id: request.params.id,
